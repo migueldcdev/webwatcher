@@ -1,5 +1,5 @@
-import webwatcher
+import pipeline
 
 
 def test_hello() -> None:
-    assert webwatcher.hello() == "Hello from webwatcher!"
+    assert pipeline.hello() == "Hello from pipeline!"
