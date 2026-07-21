@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://webwatcher:webwatcher@db:5432/webwatcher
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: webwatcher
+      POSTGRES_PASSWORD: webwatcher
+      POSTGRES_DB: webwatcher
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
